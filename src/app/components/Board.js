@@ -146,7 +146,11 @@ export default function Board() {
           <button
             className={`button  ${
               isStrict ? "bg-[#ff0000] text-white" : "bg-gray-100"
-            } ${isHumanTurn ? "cursor-pointer" : "cursor-default"}`}
+            } ${
+              game && isHumanTurn
+                ? "cursor-pointer"
+                : "cursor-default opacity-50"
+            }`}
             onClick={() => {
               if (game && isHumanTurn) {
                 //console.log("click strict");

@@ -23,7 +23,7 @@ export default function useResetconDelay({
       (message === "⚠️" && isStrict) ||
       message === "😄"
     ) {
-      showWithDelay(1200).then(() => {
+      showWithDelay(1500).then(() => {
         const newGame = new SimonGame();
         newGame.strict = isStrict;
         setGame(newGame);
