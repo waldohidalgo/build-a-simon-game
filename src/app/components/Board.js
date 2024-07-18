@@ -179,13 +179,19 @@ export default function Board() {
       <div>
         <div className="flex justify-center gap-3 flex-wrap">
           <button
-            className={`button   ${game ? "bg-[#00ff00]" : "bg-gray-100"}`}
+            className={`button   ${game ? "bg-[#00ff00]" : "bg-gray-100"} ${
+              isHumanTurn || !game
+                ? "cursor-pointer"
+                : "cursor-default opacity-50"
+            }`}
             onClick={() => {
-              setGame(new SimonGame());
-              setIsHumanTurn(false);
-              setIsRepeating(false);
-              setIsStrict(false);
-              setLevel(0);
+              if (isHumanTurn || !game) {
+                setGame(new SimonGame());
+                setIsHumanTurn(false);
+                setIsRepeating(false);
+                setIsStrict(false);
+                setLevel(0);
+              }
             }}
           >
             start/restart
