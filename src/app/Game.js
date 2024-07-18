@@ -4,7 +4,7 @@ export default class SimonGame {
     this.sequencePC = [];
     this.stepHuman = 0;
     this.strict = false;
-    this.maxLevel = 3;
+    this.maxLevel = 20;
   }
 
   startGame() {
