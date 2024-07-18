@@ -131,7 +131,7 @@ export default function Board() {
         audio4Ref={audio4Ref}
       />
       <div>
-        <div className="flex justify-center gap-3">
+        <div className="flex justify-center gap-3 flex-wrap">
           <button
             className={`button   ${game ? "bg-[#00ff00]" : "bg-gray-100"}`}
             onClick={() => {
@@ -167,7 +167,7 @@ export default function Board() {
           </span>
         </div>
       </div>
-      <div className=" circleBoard">
+      <div className="circleBoard">
         <div className="boxCounter">
           <div className="font-bold bg-white text-[14px]">Counter</div>
           <div className="text-verdeBrillante bg-black text-3xl font-digital">
