@@ -1,33 +1,37 @@
 @tailwind base;
+
 @tailwind components;
+
+.boardSquare {
+  box-shadow: 1px 0px 0px 0 black, 0 1px 0px 0 black, 1px 0px 0px 0 black inset,
+    0 1px 0px 0 black inset;
+  margin: -1px;
+  @apply w-full aspect-square;
+}
+.pressed {
+  background-color: black;
+}
+
+.button {
+  box-shadow: 3px 3px 0 0 black;
+  @apply rounded-md border border-black p-2 font-semibold font-digital;
+}
+.circleBoard {
+  box-shadow: 0px 0px 11px 5px rgba(0, 0, 0, 0.5);
+  @apply w-[300px] mx-auto grid grid-cols-2 rounded-full border-[5px] border-black overflow-hidden relative mt-5;
+}
+
+.boxCounter {
+  box-shadow: 0 0 18px 2px black;
+  @apply absolute w-[75px]  bg-black top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center border-neutral-700 border-[2px];
+}
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  @font-face {
+    font-family: "digital7";
+    src: url("./assets/fonts/digital-7.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
   }
 }

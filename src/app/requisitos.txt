@@ -1,0 +1,27 @@
+ok User Story: I am presented with a random series of button presses.
+
+ok User Story: Each time I input a series of button presses correctly, I see the same series of button presses but with an additional step.
+
+ok User Story: I hear a sound that corresponds to each button both when the series of button presses plays, and when I personally press a button.
+
+ok User Story: If I press the wrong button, I am notified that I have done so, and that series of button presses starts again to remind me of the pattern so I can try again.
+
+ok User Story: I can see how many steps are in the current series of button presses.
+
+ok User Story: If I want to restart, I can hit a button to do so, and the game will return to a single step.
+
+ok User Story: I can play in strict mode where if I get a button press wrong, it notifies me that I have done so, and the game restarts at a new random series of button presses.
+
+User Story: I can win the game by getting a series of 20 steps correct. I am notified of my victory, then the game starts over.
+
+
+
+
+1-Juego se presenta con random series de botones presionados
+2-Cada vez que se ingresa una serie de colores correctos, se ve la misma serie con un botón extra
+3ok-Se escucha un sonido cada vez que se presiona un botón
+4-En modo NO estricto, si presiono un botón erroneo, se notifica del error y la serie de botones se repite para intentar otra vez
+5-Se puede ver cuantos pasos hay actualmente
+6-Si deseo reiniciar, puedo presionar un botón y el juego reinicia a un solo paso
+7-En modo estricto, si presiono un botón erroneo, se me notifica y el juego comienza en una aleatoria serie de botones presionados
+8-Se gana el juego llegando al nivel 20 y presionando los 20 botones de manera correcta, se notifica al jugador y el juego comienza otra vez.
