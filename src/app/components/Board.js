@@ -184,6 +184,7 @@ export default function Board() {
               setGame(new SimonGame());
               setIsHumanTurn(false);
               setIsRepeating(false);
+              setIsStrict(false);
               setLevel(0);
             }}
           >
