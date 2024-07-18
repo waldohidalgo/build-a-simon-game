@@ -15,6 +15,7 @@ export default function Board() {
     useRef(null),
     useRef(null),
   ];
+  const isTouching = useRef(false);
 
   const [position, setPosition] = useState(0);
   const [isHumanTurn, setIsHumanTurn] = useState(false);
@@ -87,37 +88,82 @@ export default function Board() {
   });
 
   const handleClickBoardHuman = (number) => {
-    if (isHumanTurn && game) {
-      setPosition(number);
+    if (!isTouching.current) {
+      if (isHumanTurn && game) {
+        setPosition(number);
+      }
+    }
+  };
+
+  const handleTouchBoardHuman = (number) => {
+    isTouching.current = true;
+    if (isTouching.current) {
+      if (isHumanTurn && game) {
+        setPosition(number);
+      }
     }
   };
 
   const handleMouseUpBoardHuman = () => {
-    if (isHumanTurn && game) {
-      //console.log("mouse up", position); //position antigua
-      setPosition(0);
-      const step = game.stepHuman;
-      const [result, sequence] = game.humanTurn(step, position);
+    if (!isTouching.current) {
+      if (isHumanTurn && game) {
+        //console.log("mouse up", position); //position antigua
+        setPosition(0);
+        const step = game.stepHuman;
+        const [result, sequence] = game.humanTurn(step, position);
 
-      if (result === "pc" && !sequence) {
-        //console.log("turno pc");
-        setIsHumanTurn(false);
+        if (result === "pc" && !sequence) {
+          //console.log("turno pc");
+          setIsHumanTurn(false);
+        }
+        if (result === "pc" && sequence && isStrict === false) {
+          //console.log("repeticion PC turno PC");
+          setMessage("⚠️");
+          setIsHumanTurn(false);
+          setIsRepeating(true);
+        }
+        if (!result && !sequence && isStrict) {
+          //console.log("muerto turno PC");
+          setMessage("💀");
+          setIsHumanTurn(false);
+        }
+        if (result === "win") {
+          //console.log("win turno PC");
+          setMessage("😄");
+          setIsHumanTurn(false);
+        }
       }
-      if (result === "pc" && sequence && isStrict === false) {
-        //console.log("repeticion PC turno PC");
-        setMessage("⚠️");
-        setIsHumanTurn(false);
-        setIsRepeating(true);
-      }
-      if (!result && !sequence && isStrict) {
-        //console.log("muerto turno PC");
-        setMessage("💀");
-        setIsHumanTurn(false);
-      }
-      if (result === "win") {
-        //console.log("win turno PC");
-        setMessage("😄");
-        setIsHumanTurn(false);
+    }
+  };
+
+  const handleTouchEndBoardHuman = () => {
+    if (isTouching.current) {
+      if (isHumanTurn && game) {
+        //console.log("mouse up", position); //position antigua
+        setPosition(0);
+        const step = game.stepHuman;
+        const [result, sequence] = game.humanTurn(step, position);
+
+        if (result === "pc" && !sequence) {
+          //console.log("turno pc");
+          setIsHumanTurn(false);
+        }
+        if (result === "pc" && sequence && isStrict === false) {
+          //console.log("repeticion PC turno PC");
+          setMessage("⚠️");
+          setIsHumanTurn(false);
+          setIsRepeating(true);
+        }
+        if (!result && !sequence && isStrict) {
+          //console.log("muerto turno PC");
+          setMessage("💀");
+          setIsHumanTurn(false);
+        }
+        if (result === "win") {
+          //console.log("win turno PC");
+          setMessage("😄");
+          setIsHumanTurn(false);
+        }
       }
     }
   };
@@ -186,6 +232,8 @@ export default function Board() {
             handleClickBoardHuman(1);
           }}
           onMouseUp={handleMouseUpBoardHuman}
+          onTouchStart={() => handleTouchBoardHuman(1)}
+          onTouchEnd={handleTouchEndBoardHuman}
         ></div>
         <div
           className={`${
@@ -193,6 +241,8 @@ export default function Board() {
           } boardSquare ${isHumanTurn && "cursor-pointer"} `}
           onMouseDown={() => handleClickBoardHuman(2)}
           onMouseUp={handleMouseUpBoardHuman}
+          onTouchStart={() => handleTouchBoardHuman(2)}
+          onTouchEnd={handleTouchEndBoardHuman}
         ></div>
         <div
           className={`${
@@ -200,6 +250,8 @@ export default function Board() {
           } boardSquare ${isHumanTurn && "cursor-pointer"}`}
           onMouseDown={() => handleClickBoardHuman(3)}
           onMouseUp={handleMouseUpBoardHuman}
+          onTouchStart={() => handleTouchBoardHuman(3)}
+          onTouchEnd={handleTouchEndBoardHuman}
         ></div>
         <div
           className={`${
@@ -207,6 +259,8 @@ export default function Board() {
           } boardSquare ${isHumanTurn && "cursor-pointer"}`}
           onMouseDown={() => handleClickBoardHuman(4)}
           onMouseUp={handleMouseUpBoardHuman}
+          onTouchStart={() => handleTouchBoardHuman(4)}
+          onTouchEnd={handleTouchEndBoardHuman}
         ></div>
       </div>
     </div>
