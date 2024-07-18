@@ -2,13 +2,29 @@
 
 Proyecto [Build a Simon Game](https://www.freecodecamp.org/learn/coding-interview-prep/take-home-projects/build-a-simon-game) requisito obligatorio para obtener la **Legacy Front End Certification** de Freecodecamp. Este el décimo y último proyecto.
 
+Proyecto construido utilizando Next.js, React y TailwindCSS.
+
 ## Tabla de Contenidos
+
+- [Build a Simon Game](#build-a-simon-game)
+  - [Tabla de Contenidos](#tabla-de-contenidos)
+  - [Requisitos del Proyecto](#requisitos-del-proyecto)
+  - [Proyecto Aprobado](#proyecto-aprobado)
+  - [Screenshots](#screenshots)
+    - [1-Estado Inicial](#1-estado-inicial)
+    - [2-Modo normal](#2-modo-normal)
+    - [3-Modo estricto](#3-modo-estricto)
+    - [4-Alerta Secuencia Erronea ingresada por Usuario](#4-alerta-secuencia-erronea-ingresada-por-usuario)
+    - [5-Alerta Game Over](#5-alerta-game-over)
+    - [6- Alerta Juego Ganado](#6--alerta-juego-ganado)
 
 ## Requisitos del Proyecto
 
 ![Requisitos del Proyecto](./screenshots/requisitos.webp)
 
 ## Proyecto Aprobado
+
+![Proyecto aprobado screenshot](./screenshots/proyecto_aprobado.webp)
 
 ## Screenshots
 
@@ -25,6 +41,8 @@ Proyecto [Build a Simon Game](https://www.freecodecamp.org/learn/coding-intervie
 ![Modo estricto screenshot](./screenshots/3modo_estricto_activado.webp)
 
 ### 4-Alerta Secuencia Erronea ingresada por Usuario
+
+Esta alerta solo se muestra en modo normal. En modo estricto, una secuencia erronea finaliza inmediatamente el juego.
 
 ![Alerta Secuencia Erronea ingresada por Usuario screenshot](./screenshots/4alerta_secuencia_erronea.webp)
 
